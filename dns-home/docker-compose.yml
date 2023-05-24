@@ -1,0 +1,24 @@
+---
+version: '3'
+services:
+  bind9:
+    image: ubuntu/bind9:latest
+    container_name: bind9-dns
+    environment:
+      - BIND9_USER=root
+      - TZ=Africa/Cairo
+    volumes:
+      - ./conf:/etc/bind
+      - ./cache:/var/cache/bind
+      - ./records:/var/lib/bind
+    ports:
+      - '53:53/tcp'
+      - '53:53/udp'
+    networks:
+      - homelab
+    restart: unless-stopped
+
+networks:
+  homelab:
+    external: true
+

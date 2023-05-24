@@ -1,0 +1,16 @@
+$TTL 2d
+
+$ORIGIN midolab.home.
+
+@             IN     SOA    ns.midolab.home. info.midolab.home (
+                            2023052400     ; serial
+                            12h            ; refresh
+                            15m            ; retry
+                            3w             ; expire
+                            2h )           ; minimum TTL
+
+              IN     NS     ns.midolab.home.
+
+ns            IN     A      192.168.1.16
+
+router    IN     A      192.168.1.1
