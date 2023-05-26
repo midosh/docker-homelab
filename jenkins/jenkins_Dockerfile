@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:2.387.3
+FROM jenkins/jenkins:latest
 USER root
 RUN apt-get update && apt-get install -y lsb-release  ca-certificates curl gnupg
 RUN curl -fsSLo /usr/share/keyrings/docker-archive-keyring.asc \
@@ -10,3 +10,8 @@ RUN echo "deb [arch=$(dpkg --print-architecture) \
 RUN apt-get update && apt-get install -y docker-ce-cli
 USER jenkins
 RUN jenkins-plugin-cli --plugins "blueocean docker-workflow"
+ENV DOCKER_HOST=tcp://docker:2376
+ENV DOCKER_CERT_PATH=/certs/client
+ENV DOCKER_TLS_VERIFY=1
+EXPOSE 8080/tcp
+EXPOSE 5000/tcp
