@@ -13,7 +13,7 @@ services:
       - "jenkins-docker-certs:/certs/client:ro"
     networks:
       - homelab
-    restart: on-failure
+    restart: unless-stopped
     depends_on:
       - jenkins_bind
 
@@ -22,7 +22,7 @@ services:
     build:
       dockerfile: jenkins_bind_dockerfile
     privileged: true
-    restart: on-failure
+    restart: unless-stopped
     volumes:
       - "jenkins-docker-certs:/certs/client"
       - "jenkins-data:/var/jenkins_home"
