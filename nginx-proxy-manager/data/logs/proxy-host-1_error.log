@@ -1,0 +1,1 @@
+2023/05/30 23:14:36 [warn] 1642#1642: *110 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/1/00/0000000001 while reading upstream, client: 172.19.0.1, server: portainer.midolab.home, request: "GET /api/motd HTTP/1.1", upstream: "https://172.19.0.2:9443/api/motd", host: "portainer.midolab.home", referrer: "http://portainer.midolab.home/"
